@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { createStripePortal } from '@/utils/stripe/server';
@@ -53,7 +53,7 @@ export default function CustomerPortalForm({ subscription }: Props) {
           : 'You are not currently subscribed to any plan.'
       }
       footer={
-        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center ">
           <p className="pb-4 sm:pb-0">Manage your subscription on Stripe.</p>
           <Button
             variant="slim"
@@ -65,11 +65,11 @@ export default function CustomerPortalForm({ subscription }: Props) {
         </div>
       }
     >
-      <div className="mt-8 mb-4 text-xl font-semibold">
+      <div className="mt-4 mb-8 text-xl font-semibold">
         {subscription ? (
           `${subscriptionPrice}/${subscription?.prices?.interval}`
         ) : (
-          <Link href="/">Choose your plan</Link>
+          <Link className=" p-2 text-sm font-normal rounded-lg border border-stone-300" href="/">Choose a plan</Link>
         )}
       </div>
     </Card>

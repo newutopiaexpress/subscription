@@ -56,10 +56,7 @@ export default async function SignIn({
 
   return (
     <div className="flex justify-center height-screen-helper">
-      <div className="flex flex-col justify-between max-w-lg p-3 m-auto w-80 ">
-        <div className="flex justify-center pb-12 ">
-          <Logo width="64px" height="64px" />
-        </div>
+      <div className="flex flex-col justify-between w-96 p-3 m-auto border-0">
         <Card
           title={
             viewProp === 'forgot_password'
@@ -71,19 +68,7 @@ export default async function SignIn({
                   : 'Sign In'
           }
         >
-          {viewProp === 'password_signin' && (
-            <PasswordSignIn
-              allowEmail={allowEmail}
-              redirectMethod={redirectMethod}
-            />
-          )}
-          {viewProp === 'email_signin' && (
-            <EmailSignIn
-              allowPassword={allowPassword}
-              redirectMethod={redirectMethod}
-              disableButton={searchParams.disable_button}
-            />
-          )}
+
           {viewProp === 'forgot_password' && (
             <ForgotPassword
               allowEmail={allowEmail}
@@ -101,7 +86,6 @@ export default async function SignIn({
             viewProp !== 'signup' &&
             allowOauth && (
               <>
-                <Separator text="Third-party sign-in" />
                 <OauthSignIn />
               </>
             )}
