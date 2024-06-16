@@ -64,7 +64,7 @@ export default function Controls() {
               onClick={() => {
                 disconnect();
               }}
-              variant={"destructive"}
+              variant={"slim"}
             >
               <span>
                 <Phone
