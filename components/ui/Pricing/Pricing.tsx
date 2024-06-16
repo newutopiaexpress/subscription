@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/ui/Button/Button';
+import { Button } from '../Button/Button';
 import type { Tables } from '@/types_db';
 import { getStripe } from '@/utils/stripe/client';
 import { checkoutWithStripe } from '@/utils/stripe/server';
@@ -181,9 +181,7 @@ export default function Pricing({ user, products, subscription }: Props) {
                       </span>
                     </p>
                     <Button
-                      variant="slim"
                       type="button"
-                      loading={priceIdLoading === price.id}
                       onClick={() => handleStripeCheckout(price)}
                       className="block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-full hover:bg-zinc-900"
                     >

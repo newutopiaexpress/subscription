@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/ui/Button';
+import { Button } from '../Button/Button';
 import Card from '@/components/ui/Card';
 import { updateEmail } from '@/utils/auth-helpers/server';
 import { handleRequest } from '@/utils/auth-helpers/client';
@@ -37,10 +37,8 @@ export default function EmailForm({
             We will email you to verify the change.
           </p>
           <Button
-            variant="slim"
             type="submit"
             form="emailForm"
-            loading={isSubmitting}
           >
             Update Email
           </Button>

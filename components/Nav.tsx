@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-import  Button  from "./ui/Button";
+import { Button } from "./ui/Button/Button";
 import { Moon, Sun } from "lucide-react";
 import { UtopiaLogo } from "./ui/utopia-logo";
 
@@ -37,7 +37,6 @@ export const Nav = () => {
 
         <Button
           onClick={toggleDark}
-          variant={"slim"}
           className={"ml-auto flex items-center gap-1.5"}
         >
           <span>

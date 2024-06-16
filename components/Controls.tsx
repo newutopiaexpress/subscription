@@ -1,6 +1,6 @@
 "use client";
 import { useVoice } from "@humeai/voice-react";
-import  Button  from "./ui/Button";
+import {Button} from "./ui/Button/Button";
 import { Mic, MicOff, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toggle } from "./ui/toggle";
@@ -64,7 +64,6 @@ export default function Controls() {
               onClick={() => {
                 disconnect();
               }}
-              variant={"slim"}
             >
               <span>
                 <Phone

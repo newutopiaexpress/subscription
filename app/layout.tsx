@@ -8,8 +8,8 @@ import 'styles/main.css';
 
 
 const meta = {
-  title: 'Next.js Subscription Starter',
-  description: 'Brought to you by Vercel, Stripe, and Supabase.',
+  title: 'Utopia Express',
+  description: '',
   cardImage: '/og.png',
   robots: 'follow, index',
   favicon: '/favicon.ico',
@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className="bg-stone-200 text-stone-800">
+      <body className="bg-stone-100 text-stone-800">
         <Navbar />
         <main
           id="skip"

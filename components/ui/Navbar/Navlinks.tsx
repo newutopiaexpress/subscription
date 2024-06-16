@@ -17,12 +17,12 @@ export default function Navlinks({ user }: NavlinksProps) {
   const router = getRedirectMethod() === 'client' ? useRouter() : null;
 
   return (
-    <div className="relative flex flex-row justify-between py-4 align-center md:py-6 bg-transparent text-xs font-normal uppercase tracking-wider">
+    <div className="relative flex flex-row justify-between py-4 font-thin align-center md:py-6 bg-transparent text-xs uppercase tracking-wider">
       <div className="flex items-center flex-1 bg-transparent">
-        <Link href="/" className={s.logo} aria-label="Logo">
+        <Link href="/" className="z-100" aria-label="Logo">
           <UtopiaLogo/>
         </Link>
-        <nav className="ml-9 space-x-2 lg:block">
+        <nav className="ml-9 space-x-9 lg:block">
           <Link href="/" className={s.link}>
             Pricing
           </Link>
@@ -33,6 +33,20 @@ export default function Navlinks({ user }: NavlinksProps) {
           )}
         </nav>
       </div>
+
+      <div className="flex items-center flex-1 bg-transparent text-center mx-auto">
+        <nav className="space-x-9 lg:block">
+          <Link href="/" className={s.link}>
+            English Tutor
+          </Link>
+          {user && (
+            <Link href="/account" className={s.link}>
+              Mental Health
+            </Link>
+          )}
+        </nav>
+      </div>
+
       <div className="flex justify-end space-x-8">
         {user ? (
           <form onSubmit={(e) => handleRequest(e, SignOut, router)}>
