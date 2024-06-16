@@ -7,6 +7,7 @@ import Logo from '@/components/icons/Logo';
 import { usePathname, useRouter } from 'next/navigation';
 import { getRedirectMethod } from '@/utils/auth-helpers/settings';
 import s from './Navbar.module.css';
+import { UtopiaLogo } from "@/components/ui/utopia-logo";
 
 interface NavlinksProps {
   user?: any;
@@ -16,10 +17,10 @@ export default function Navlinks({ user }: NavlinksProps) {
   const router = getRedirectMethod() === 'client' ? useRouter() : null;
 
   return (
-    <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
-      <div className="flex items-center flex-1">
+    <div className="relative flex flex-row justify-between py-4 align-center md:py-6 bg-transparent">
+      <div className="flex items-center flex-1 bg-transparent">
         <Link href="/" className={s.logo} aria-label="Logo">
-          <Logo />
+          <UtopiaLogo/>
         </Link>
         <nav className="ml-6 space-x-2 lg:block">
           <Link href="/" className={s.link}>

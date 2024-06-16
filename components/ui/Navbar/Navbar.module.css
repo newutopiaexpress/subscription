@@ -1,9 +1,9 @@
 .root {
-  @apply sticky top-0 bg-black z-40 transition-all duration-150 h-16 md:h-20;
+  @apply sticky top-0 bg-stone-100 z-40 transition-all duration-150 h-16 md:h-20;
 }
 
 .link {
-  @apply inline-flex items-center leading-6 font-medium transition ease-in-out duration-75 cursor-pointer text-zinc-200 rounded-md p-1;
+  @apply inline-flex items-center leading-6 font-medium  transition ease-in-out duration-75 cursor-pointer text-stone-700 rounded-md p-1;
 }
 
 .link:hover {
