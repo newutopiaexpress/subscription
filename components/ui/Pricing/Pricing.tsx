@@ -9,6 +9,7 @@ import { User } from '@supabase/supabase-js';
 import cn from 'classnames';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
 
 type Subscription = Tables<'subscriptions'>;
 type Product = Tables<'products'>;
@@ -50,7 +51,7 @@ export default function Pricing({ user, products, subscription }: Props) {
 
     if (!user) {
       setPriceIdLoading(undefined);
-      return router.push('/signin/signup');
+      return router.push('/signin/password_signin');
     }
 
     const { errorRedirect, sessionId } = await checkoutWithStripe(
@@ -103,16 +104,53 @@ export default function Pricing({ user, products, subscription }: Props) {
     );
   } else {
     return (
-      <section className="bg-stone-100 text-stone-800">
+      <section className="bg-transparent text-stone-800">
         <div className="w-full px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center">
             <h1 className="text-4xl font-extrabold text-stone-800 sm:text-center sm:text-6xl tracking-tighter">
-            Utopia Voice Assistant 
+            Empathic Voice Assistants 
             </h1>
-            <p className="max-w-2xl m-auto mt-5 text-xl text-stone-700 sm:text-center sm:text-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At asperiores, dolorum itaque sequi providentpedit Quisquam.
+            <p className="max-w-2xl m-auto mt-6 mb-9 text-xl text-stone-600 sm:text-center sm:text-2xl">
+              AI voice that responds empathically. Built with Hume.ai align technology for human well-being.
             </p>
-            <div className="relative self-center mt-6 bg-stone-200 rounded-full p-0.5 flex sm:mt-8 border border-stone-100">
+
+            <div className="md:w-2/3 grid grid-cols-3 gap-12 mx-auto pt-16 pb-16">
+
+                <div className="col-span-1 text-center">
+                  <Image 
+                  className="rounded-full w-32 h-32 mx-auto"
+                  src="/pro1.png" 
+                  alt="Pricing"
+                  width={200} height={200} />
+                  <span className="font-thin tracking-tight text-xl">Lucy</span><br/>
+                  <span className="font-extrabold tracking-tight text-xl">English Tutor</span><br/>
+                  <span className="text-sm leading-3">Increase your efficiency, self-confidence, improve your general well-being.</span>
+                </div>
+
+                <div className="col-span-1 text-center relative">
+                  <span className="absolute top-0 right-0 bg-stone-800 text-stone-100 px-2 py-1 rounded-full">New</span>
+                  <Image 
+                  className="rounded-full w-32 h-32 mx-auto"
+                  src="/kontotamas2.png" 
+                  alt="Pricing"
+                  width={400} height={400} />
+                  <span className="font-extrabold tracking-tight text-xl">Motivational Coach</span><br/>
+                  <span className="text-sm leading-3">Increase your efficiency, self-confidence, improve your general well-being.</span>
+                </div>
+
+                <div className="col-span-1 text-center text-stone-700">
+                  <Image 
+                  className="rounded-full w-32 h-32 mx-auto"
+                  src="/5.png" 
+                  alt="Pricing"
+                  width={1024} height={1280} />
+                  <span className="font-extrabold tracking-tight text-xl">Smart Home OS</span><br/>
+                  <span className="text-sm leading-3">Control your smart home devices with natural voice. *In development</span>
+                </div>
+
+            </div>
+
+            <div className="relative self-center mt-6 bg-white rounded-full p-0.5 flex sm:mt-8 border border-stone-100 shadow-lg">
               {intervals.includes('month') && (
                 <button
                   onClick={() => setBillingInterval('month')}
@@ -121,7 +159,7 @@ export default function Pricing({ user, products, subscription }: Props) {
                     billingInterval === 'month'
                       ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-xl text-stone-100'
                       : 'ml-0.5 relative w-1/2 border border-transparent text-stone-100'
-                  } rounded-full m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                  } rounded-full m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
                 >
                   Monthly billing
                 </button>
@@ -134,7 +172,7 @@ export default function Pricing({ user, products, subscription }: Props) {
                     billingInterval === 'year'
                       ? 'relative w-1/2 bg-stone-800 border-zinc-800 shadow-sm text-white'
                       : 'ml-0.5 relative w-1/2 border border-transparent text-stone-500'
-                  } rounded-full m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                  } rounded-full m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
                 >
                   Yearly billing
                 </button>
@@ -156,7 +194,7 @@ export default function Pricing({ user, products, subscription }: Props) {
                 <div
                   key={product.id}
                   className={cn(
-                    'flex flex-col rounded-lg shadow-sm divide-y divide-zinc-100 bg-stone-800 text-stone-100',
+                    'flex flex-col rounded-lg shadow-xl divide-y divide-zinc-100 bg-stone-100 text-stone-800',
                     {
                       'border border-pink-500': subscription
                         ? product.name === subscription?.prices?.products?.name
@@ -168,15 +206,15 @@ export default function Pricing({ user, products, subscription }: Props) {
                   )}
                 >
                   <div className="p-6">
-                    <h2 className="text-2xl font-semibold leading-6 text-stone-100">
+                    <h2 className="text-2xl font-semibold leading-6 text-stone-800">
                       {product.name}
                     </h2>
-                    <p className="mt-4 text-stone-300">{product.description}</p>
+                    <p className="mt-4 text-stone-600 text-sm">{product.description}</p>
                     <p className="mt-8">
                       <span className="text-5xl font-extrabold white">
                         {priceString}
                       </span>
-                      <span className="text-base font-medium text-zinc-100">
+                      <span className="text-base font-medium text-stone-700">
                         /{billingInterval}
                       </span>
                     </p>

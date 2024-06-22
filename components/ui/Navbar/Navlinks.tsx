@@ -36,12 +36,19 @@ export default function Navlinks({ user }: NavlinksProps) {
 
       <div className="flex items-center flex-1 bg-transparent text-center mx-auto">
         <nav className="space-x-9 lg:block">
+          {user && (
           <Link href="/" className={s.link}>
             English Tutor
           </Link>
+           )}
           {user && (
             <Link href="/account" className={s.link}>
               Mental Health
+            </Link>
+          )}
+          {user && (
+            <Link href="/account" className={s.link}>
+              Motivational Coach
             </Link>
           )}
         </nav>
