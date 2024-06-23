@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className=" bg-gradient-to-b from-lime-100/50 via-rose-100/50 to-lime-100/40 text-stone-800">
+      <body className=" bg-gradient-to-b from-lime-100/50 via-yellow-100/50 to-lime-100/40 text-stone-800">
         <Navbar />
         <main
           id="skip"
