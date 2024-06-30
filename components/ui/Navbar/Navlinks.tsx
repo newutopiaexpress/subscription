@@ -19,11 +19,11 @@ export default function Navlinks({ user }: NavlinksProps) {
   return (
     <div className="relative flex flex-row justify-between py-4 font-thin align-center md:py-6 bg-transparent text-xs uppercase tracking-wider">
       <div className="flex items-center flex-1 bg-transparent">
-        <Link href="/" className="z-100" aria-label="Logo">
+        <Link href="#Pricing" className="z-100" aria-label="Logo">
           <UtopiaLogo/>
         </Link>
         <nav className="ml-9 space-x-9 lg:block">
-          <Link href="/" className={s.link}>
+          <Link href="#Pricing" className={s.link}>
             Pricing
           </Link>
           {user && (
